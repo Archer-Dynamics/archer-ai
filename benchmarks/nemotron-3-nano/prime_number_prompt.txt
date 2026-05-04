@@ -1,0 +1,1 @@
+Write a simple Python function that checks if a number is prime. Explain how it works in plain English, like teaching a beginner.
