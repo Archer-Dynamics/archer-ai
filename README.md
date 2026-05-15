@@ -42,9 +42,11 @@ Full benchmark results and analysis published at goarcherdynamics.com.
 # Repository Structure
 ---
 
+```
 benchmarks/          # Per-model benchmark runs and outputs
 prompts/             # Reusable prompt templates
 tools/               # Monitoring scripts and utilities
+```
 
 
 # Disclaimer
