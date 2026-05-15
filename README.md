@@ -1,5 +1,4 @@
 # Archer AI
----
 
 Benchmark scripts, model evaluation tools, model-generated code, and prompt engineering 
 experiments from the Archer Dynamics AI@Home series. Designed for local Ollama deployments 
@@ -40,7 +39,6 @@ meaningless.
 Full benchmark results and analysis published at goarcherdynamics.com.
 
 # Repository Structure
----
 
 ```
 benchmarks/          # Per-model benchmark runs and outputs
@@ -50,7 +48,6 @@ tools/               # Monitoring scripts and utilities
 
 
 # Disclaimer
----
 
 All code in this repository was developed by AI -- that is the purpose of this repo -- to help 
 you see which model is better than others and what may be worth your time. Hopefully this 
@@ -58,7 +55,6 @@ helps you make an educated decision which model to invest your time in.
 Logic, design, code modifications, and testing by Jiri Krecek / Archer Dynamics LLC.
 Licensed under MIT -- free to use with attribution.
 
----
 
 [goarcherdynamics.com](https://goarcherdynamics.com) · 
 [LinkedIn](https://www.linkedin.com/company/archer-dynamics-llc) · 
