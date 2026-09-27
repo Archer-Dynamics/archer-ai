@@ -1,0 +1,266 @@
+version: 1
+
+questions:
+
+  - id: RET01
+
+    category: RET
+
+    skill: Deep lookup
+
+    scenario: Project Mercury TCP port
+
+    prompt: |
+      What TCP port does Project Mercury listen on?
+
+      Answer with digits only.
+
+    trap: >
+      Similar port numbers appear elsewhere in the document.
+
+    resource_ids:
+      - RET-DOC-01
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: exact_match
+
+  - id: RET02
+
+    category: RET
+
+    skill: Deep lookup
+
+    scenario: Backup server hostname
+
+    prompt: |
+      What is the hostname of the backup server?
+
+      Answer with hostname only.
+
+    trap: >
+      Similar server names appear elsewhere in the document.
+
+    resource_ids:
+      - RET-DOC-01
+
+    output_contract:
+      type: hostname
+      format: exact
+
+    grading:
+      method: exact_match
+
+  - id: RET03
+
+    category: RET
+
+    skill: Deep lookup
+
+    scenario: Site Delta commissioning year
+
+    prompt: |
+      In what year was Site Delta commissioned?
+
+      Answer with digits only.
+
+    trap: >
+      Multiple dates appear in nearby sections.
+
+    resource_ids:
+      - RET-DOC-01
+
+    output_contract:
+      type: integer
+      format: four_digits
+
+    grading:
+      method: exact_match
+
+  - id: RET04
+
+    category: RET
+
+    skill: Deep lookup
+
+    scenario: Failed generator asset ID
+
+    prompt: |
+      What is the asset ID of the failed generator?
+
+      Answer with the ID only.
+
+    trap: >
+      Similar asset identifiers appear elsewhere
+      in the document.
+
+    resource_ids:
+      - RET-DOC-01
+
+    output_contract:
+      type: token
+      format: exact
+
+    grading:
+      method: exact_match
+
+  - id: RET05
+
+    category: RET
+
+    skill: Deep lookup
+
+    scenario: Security camera VLAN
+
+    prompt: |
+      What VLAN number is assigned to Security Cameras?
+
+      Answer with digits only.
+
+    trap: >
+      Multiple VLAN definitions appear nearby.
+
+    resource_ids:
+      - RET-DOC-01
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: exact_match
+
+  - id: RET06
+
+    category: RET
+
+    skill: Deep lookup
+
+    scenario: Pump 3 maintenance interval
+
+    prompt: |
+      What is the maintenance interval for Pump 3?
+
+      Answer with digits only.
+
+    trap: >
+      Similar maintenance schedules exist for
+      other equipment.
+
+    resource_ids:
+      - RET-DOC-01
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: exact_match
+
+  - id: RET07
+
+    category: RET
+
+    skill: Deep lookup
+
+    scenario: Regional Office West location
+
+    prompt: |
+      Which city hosts Regional Office West?
+
+      Answer with city name only.
+
+    trap: >
+      Other regional offices use similar naming.
+
+    resource_ids:
+      - RET-DOC-01
+
+    output_contract:
+      type: token
+      format: single_word
+
+    grading:
+      method: exact_match
+
+  - id: RET08
+
+    category: RET
+
+    skill: Deep lookup
+
+    scenario: Building C emergency extension
+
+    prompt: |
+      What is the emergency contact extension
+      for Building C?
+
+      Answer with digits only.
+
+    trap: >
+      Several phone numbers appear in the document.
+
+    resource_ids:
+      - RET-DOC-01
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: exact_match
+
+  - id: RET09
+
+    category: RET
+
+    skill: Deep lookup
+
+    scenario: Unit RX-7 refrigerant type
+
+    prompt: |
+      What refrigerant is used by Unit RX-7?
+
+      Answer with the designation only.
+
+    trap: >
+      Similar HVAC units use different refrigerants.
+
+    resource_ids:
+      - RET-DOC-01
+
+    output_contract:
+      type: token
+      format: exact
+
+    grading:
+      method: exact_match
+
+  - id: RET10
+
+    category: RET
+
+    skill: Deep lookup
+
+    scenario: Deprecated database cluster
+
+    prompt: |
+      Which database cluster is marked deprecated?
+
+      Answer with the cluster name only.
+
+    trap: >
+      Multiple cluster names appear in the document.
+
+    resource_ids:
+      - RET-DOC-01
+
+    output_contract:
+      type: token
+      format: exact
+
+    grading:
+      method: exact_match

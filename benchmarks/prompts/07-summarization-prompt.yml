@@ -1,0 +1,192 @@
+version: 1
+
+questions:
+
+  - id: SUM01
+
+    category: SUM
+
+    skill: Incident summary
+
+    scenario: Preserve outage duration in incident report summary
+
+    prompt: |
+      Summarize this incident report in no more than
+      75 words.
+
+    trap: >
+      Omitting the planted outage duration fact.
+
+    resource_ids:
+      - SUM-DOC-01
+
+    word_limit: 75
+
+    output_contract:
+      type: summary
+      format: max_75_words
+
+    grading:
+      method: fact_survival
+
+  - id: SUM02
+
+    category: SUM
+
+    skill: Project summary
+
+    scenario: Preserve budget value in project update summary
+
+    prompt: |
+      Summarize this project update in no more than
+      60 words.
+
+    trap: >
+      Omitting the planted budget value.
+
+    resource_ids:
+      - SUM-DOC-02
+
+    word_limit: 60
+
+    output_contract:
+      type: summary
+      format: max_60_words
+
+    grading:
+      method: fact_survival
+
+  - id: SUM03
+
+    category: SUM
+
+    skill: Technical summary
+
+    scenario: Preserve completion date in migration summary
+
+    prompt: |
+      Summarize this migration plan in no more than
+      75 words.
+
+    trap: >
+      Omitting the planted completion date.
+
+    resource_ids:
+      - SUM-DOC-03
+
+    word_limit: 75
+
+    output_contract:
+      type: summary
+      format: max_75_words
+
+    grading:
+      method: fact_survival
+
+  - id: SUM04
+
+    category: SUM
+
+    skill: Executive summary
+
+    scenario: Preserve revenue figure in quarterly report summary
+
+    prompt: |
+      Summarize this quarterly report in no more than
+      80 words.
+
+    trap: >
+      Omitting the planted revenue figure.
+
+    resource_ids:
+      - SUM-DOC-04
+
+    word_limit: 80
+
+    output_contract:
+      type: summary
+      format: max_80_words
+
+    grading:
+      method: fact_survival
+
+  - id: SUM05
+
+    category: SUM
+
+    skill: Maintenance summary
+
+    scenario: Preserve equipment identifier in maintenance summary
+
+    prompt: |
+      Summarize this maintenance log in no more than
+      60 words.
+
+    trap: >
+      Omitting the planted equipment identifier.
+
+    resource_ids:
+      - SUM-DOC-05
+
+    word_limit: 60
+
+    output_contract:
+      type: summary
+      format: max_60_words
+
+    grading:
+      method: fact_survival
+
+  - id: SUM06
+
+    category: SUM
+
+    skill: Research summary
+
+    scenario: Preserve sample size in study summary
+
+    prompt: |
+      Summarize this study in no more than
+      70 words.
+
+    trap: >
+      Omitting the planted sample-size fact.
+
+    resource_ids:
+      - SUM-DOC-06
+
+    word_limit: 70
+
+    output_contract:
+      type: summary
+      format: max_70_words
+
+    grading:
+      method: fact_survival
+
+  - id: SUM07
+
+    category: SUM
+
+    skill: Operations summary
+
+    scenario: Preserve key metric in operations summary
+
+    prompt: |
+      Summarize this operations report in no more than
+      75 words.
+
+    trap: >
+      Omitting the planted key metric.
+
+    resource_ids:
+      - SUM-DOC-07
+
+    word_limit: 75
+
+    output_contract:
+      type: summary
+      format: max_75_words
+
+    grading:
+      method

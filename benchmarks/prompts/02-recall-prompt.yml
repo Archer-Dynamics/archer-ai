@@ -1,0 +1,250 @@
+version: 1
+
+questions:
+
+  - id: REC01
+
+    category: REC
+
+    skill: Biology
+
+    scenario: Mammal capable of true sustained flight
+
+    prompt: |
+      What is the only mammal capable of true sustained flight?
+      Answer with the common name only.
+
+    trap: >
+      Flying squirrel glides rather than flies.
+
+    resource_ids: []
+
+    output_contract:
+      type: token
+      format: single_word
+
+    grading:
+      method: exact_match
+
+  - id: REC02
+
+    category: REC
+
+    skill: Chemistry
+
+    scenario: Tungsten chemical symbol
+
+    prompt: |
+      What is the chemical symbol for tungsten?
+      Answer with only the symbol.
+
+    trap: >
+      Guessing from the English name instead of
+      the historical element symbol.
+
+    resource_ids: []
+
+    output_contract:
+      type: symbol
+      format: case_sensitive
+
+    grading:
+      method: exact_match
+
+  - id: REC03
+
+    category: REC
+
+    skill: Physics
+
+    scenario: Celsius and Fahrenheit intersection
+
+    prompt: |
+      At what temperature are the Celsius and Fahrenheit
+      scales equal?
+      Answer with only the number.
+
+    trap: >
+      Dropping the negative sign.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: signed_digits_only
+
+    grading:
+      method: numeric_match
+
+  - id: REC04
+
+    category: REC
+
+    skill: Geography
+
+    scenario: Capital city of Australia
+
+    prompt: |
+      What is the capital city of Australia?
+      Answer with the city name only.
+
+    trap: >
+      Selecting Sydney instead of the capital.
+
+    resource_ids: []
+
+    output_contract:
+      type: token
+      format: single_word
+
+    grading:
+      method: exact_match
+
+  - id: REC05
+
+    category: REC
+
+    skill: Health
+
+    scenario: Adult human bone count
+
+    prompt: |
+      How many bones are in the adult human body?
+      Answer with only the number.
+
+    trap: >
+      Using the newborn count instead.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: numeric_match
+
+  - id: REC06
+
+    category: REC
+
+    skill: Technology
+
+    scenario: IPv6 address length
+
+    prompt: |
+      How many bits long is an IPv6 address?
+      Answer with only the number.
+
+    trap: >
+      Confusing IPv6 with IPv4
+      or using the interface identifier length.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: numeric_match
+
+  - id: REC07
+
+    category: REC
+
+    skill: Everyday
+
+    scenario: Safe internal temperature for chicken
+
+    prompt: |
+      What is the USDA minimum safe internal temperature
+      for cooked chicken, in degrees Fahrenheit?
+      Answer with only the number.
+
+    trap: >
+      Using outdated guidance or a temperature
+      for a different food category.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: numeric_match
+
+  - id: REC08
+
+    category: REC
+
+    skill: Language
+
+    scenario: Past tense of lead
+
+    prompt: |
+      What is the past tense of the English verb "lead"?
+      Answer with one word.
+
+    trap: >
+      Using the common misspelling.
+
+    resource_ids: []
+
+    output_contract:
+      type: token
+      format: single_word
+
+    grading:
+      method: exact_match
+
+  - id: REC09
+
+    category: REC
+
+    skill: Arts
+
+    scenario: Author of Frankenstein
+
+    prompt: |
+      Who wrote the novel Frankenstein?
+      Answer with the author's surname only.
+
+    trap: >
+      Naming Dr. Frankenstein
+      or Percy Shelley.
+
+    resource_ids: []
+
+    output_contract:
+      type: token
+      format: single_word
+
+    grading:
+      method: exact_match
+
+  - id: REC10
+
+    category: REC
+
+    skill: History
+
+    scenario: Fall of the Berlin Wall
+
+    prompt: |
+      In what year did the Berlin Wall fall?
+      Answer with only the number.
+
+    trap: >
+      Confusing the event with German reunification
+      or the collapse of the Soviet Union.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: four_digits
+
+    grading:
+      method: numeric_match

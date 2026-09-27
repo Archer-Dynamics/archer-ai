@@ -1,0 +1,259 @@
+version: 1
+
+questions:
+
+  - id: INS01
+
+    category: INS
+
+    skill: JSON output
+
+    scenario: Structured object generation
+
+    prompt: |
+      Return a JSON object with keys hostname, ip,
+      and status using the values server01,
+      10.0.0.5, and online.
+
+      Output valid JSON only.
+
+    trap: >
+      Additional text before or after the JSON object.
+
+    resource_ids: []
+
+    output_contract:
+      type: json
+
+    grading:
+      method: json_validation
+
+  - id: INS02
+
+    category: INS
+
+    skill: Word count
+
+    scenario: Exact word-count compliance
+
+    prompt: |
+      Describe a bicycle in exactly 12 words.
+
+    trap: >
+      Returning 11 or 13 words.
+
+    resource_ids: []
+
+    output_contract:
+      type: text
+      format: exactly_12_words
+
+    grading:
+      method: word_count
+
+  - id: INS03
+
+    category: INS
+
+    skill: Field ordering
+
+    scenario: Exact multi-line output ordering
+
+    prompt: |
+      Output only the following three lines
+      and nothing else:
+
+      NAME=Alice
+      ROLE=Admin
+      STATUS=Active
+
+    trap: >
+      Correct values in the wrong order.
+
+    resource_ids: []
+
+    output_contract:
+      type: fixed_text
+
+    grading:
+      method: exact_match
+
+  - id: INS04
+
+    category: INS
+
+    skill: CSV formatting
+
+    scenario: Exact CSV output
+
+    prompt: |
+      Output only the following CSV row,
+      with no header row, no quotes,
+      and nothing else:
+
+      Chicago,Illinois,2700000
+
+    trap: >
+      Quoted values, extra spaces,
+      or additional rows.
+
+    resource_ids: []
+
+    output_contract:
+      type: csv_row
+
+    grading:
+      method: exact_match
+
+  - id: INS05
+
+    category: INS
+
+    skill: Case sensitivity
+
+    scenario: Exact capitalization control
+
+    prompt: |
+      Output the word Linux in uppercase only.
+
+    trap: >
+      Mixed case or lowercase output.
+
+    resource_ids: []
+
+    output_contract:
+      type: token
+      format: uppercase_only
+
+    grading:
+      method: exact_match
+
+  - id: INS06
+
+    category: INS
+
+    skill: List formatting
+
+    scenario: Exact ordered bullet list
+
+    prompt: |
+      Output only the following three lines,
+      in this exact order,
+      and nothing else:
+
+      - red
+      - green
+      - blue
+
+    trap: >
+      Wrong order or additional content.
+
+    resource_ids: []
+
+    output_contract:
+      type: bullet_list
+
+    grading:
+      method: regex_match
+
+  - id: INS07
+
+    category: INS
+
+    skill: Character count
+
+    scenario: Fixed-length output
+
+    prompt: |
+      Output exactly 20 X characters
+      and nothing else.
+
+    trap: >
+      Returning 19 or 21 characters.
+
+    resource_ids: []
+
+    output_contract:
+      type: fixed_length_string
+      length: 20
+
+    grading:
+      method: exact_match
+
+  - id: INS08
+
+    category: INS
+
+    skill: Key/value structure
+
+    scenario: Exact configuration format
+
+    prompt: |
+      Output only the following two lines
+      and nothing else:
+
+      PORT=443
+      PROTOCOL=https
+
+    trap: >
+      Additional explanations or formatting.
+
+    resource_ids: []
+
+    output_contract:
+      type: fixed_text
+
+    grading:
+      method: exact_match
+
+  - id: INS09
+
+    category: INS
+
+    skill: Sorting
+
+    scenario: Alphabetical ordering
+
+    prompt: |
+      Output the following words in alphabetical order
+      separated by commas, and nothing else:
+
+      gamma, alpha, beta
+
+    trap: >
+      Correct items in incorrect order.
+
+    resource_ids: []
+
+    output_contract:
+      type: csv_text
+
+    grading:
+      method: exact_match
+
+  - id: INS10
+
+    category: INS
+
+    skill: JSON array
+
+    scenario: Exact array construction
+
+    prompt: |
+      Output a valid JSON array containing exactly
+      these four values, in this order,
+      and no others:
+
+      3, 5, 7, 11
+
+    trap: >
+      Wrapping the values inside an object
+      or changing the order.
+
+    resource_ids: []
+
+    output_contract:
+      type: json_array
+
+    grading:
+      method: json_validation

@@ -1,0 +1,271 @@
+version: 1
+
+questions:
+
+  - id: CON01
+
+    category: CON
+
+    skill: Value replacement
+
+    scenario: Corrected account balance
+
+    prompt: |
+      Early account balance is corrected later.
+
+      Provide the final balance.
+
+    trap: >
+      Uses the original value instead of
+      the corrected value.
+
+    resource_ids:
+      - CON-SCRIPT-01
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: exact_match
+
+  - id: CON02
+
+    category: CON
+
+    skill: Address update
+
+    scenario: Current customer city
+
+    prompt: |
+      Customer city changes during the conversation.
+
+      Provide the current city.
+
+    trap: >
+      Retains the earlier city value.
+
+    resource_ids:
+      - CON-SCRIPT-02
+
+    output_contract:
+      type: token
+      format: single_word_exact
+
+    grading:
+      method: exact_match
+
+  - id: CON03
+
+    category: CON
+
+    skill: Inventory update
+
+    scenario: Corrected stock quantity
+
+    prompt: |
+      Stock quantity is corrected later.
+
+      Provide the final quantity.
+
+    trap: >
+      Uses the initial quantity rather than
+      the corrected quantity.
+
+    resource_ids:
+      - CON-SCRIPT-03
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: exact_match
+
+  - id: CON04
+
+    category: CON
+
+    skill: Stable hostname control
+
+    scenario: Unchanged hostname
+
+    prompt: |
+      Hostname is stated once and never changed.
+
+      Provide the current hostname.
+
+    trap: >
+      Assumes a correction occurred even though
+      none was made.
+
+    resource_ids:
+      - CON-SCRIPT-04
+
+    output_contract:
+      type: hostname
+      format: exact
+
+    grading:
+      method: exact_match
+
+  - id: CON05
+
+    category: CON
+
+    skill: Meeting reschedule
+
+    scenario: Final meeting start time
+
+    prompt: |
+      The meeting is moved multiple times.
+
+      Provide the final start time.
+
+    trap: >
+      Uses an intermediate time instead of
+      the final scheduled time.
+
+    resource_ids:
+      - CON-SCRIPT-05
+
+    output_contract:
+      type: time
+      format: hhmm_24
+
+    grading:
+      method: exact_match
+
+  - id: CON06
+
+    category: CON
+
+    skill: Contact replacement
+
+    scenario: Final primary contact
+
+    prompt: |
+      Primary contact is replaced later.
+
+      Provide the final contact identifier.
+
+    trap: >
+      Uses the original contact instead of
+      the replacement.
+
+    resource_ids:
+      - CON-SCRIPT-06
+
+    output_contract:
+      type: email
+      format: exact
+
+    grading:
+      method: exact_match
+
+  - id: CON07
+
+    category: CON
+
+    skill: Price adjustment
+
+    scenario: Final product price
+
+    prompt: |
+      Product price is updated multiple times.
+
+      Provide the final price.
+
+    trap: >
+      Uses an older price or performs
+      unnecessary arithmetic.
+
+    resource_ids:
+      - CON-SCRIPT-07
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: exact_match
+
+  - id: CON08
+
+    category: CON
+
+    skill: Configuration change
+
+    scenario: Current network port assignment
+
+    prompt: |
+      Network port assignment is updated later.
+
+      Provide the current port number.
+
+    trap: >
+      Retains the previous configuration value.
+
+    resource_ids:
+      - CON-SCRIPT-08
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: exact_match
+
+  - id: CON09
+
+    category: CON
+
+    skill: Stable tracking ID control
+
+    scenario: Unchanged tracking identifier
+
+    prompt: |
+      Tracking ID is stated once and never changed.
+
+      Provide the tracking ID.
+
+    trap: >
+      Assumes an update occurred even though
+      the identifier never changed.
+
+    resource_ids:
+      - CON-SCRIPT-09
+
+    output_contract:
+      type: token
+      format: exact
+
+    grading:
+      method: exact_match
+
+  - id: CON10
+
+    category: CON
+
+    skill: Stable owner control
+
+    scenario: Unchanged account owner
+
+    prompt: |
+      Account owner is stated once and never changed.
+
+      Provide the final owner ID.
+
+    trap: >
+      Replaces an unchanged value with
+      an invented update.
+
+    resource_ids:
+      - CON-SCRIPT-10
+
+    output_contract:
+      type: token
+      format: exact
+
+    grading:
+      method: exact_match

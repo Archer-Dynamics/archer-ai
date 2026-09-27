@@ -1,0 +1,253 @@
+version: 1
+
+questions:
+
+  - id: COD01
+
+    category: COD
+
+    skill: Parse messy text
+
+    scenario: Extract AllowedIPs from a WireGuard peer configuration
+
+    prompt: |
+      Write a Python function get_allowed_ips(config_text)
+      that returns all AllowedIPs from a WireGuard peer config
+      as a list of strings.
+
+    trap: >
+      Commented lines, multiple AllowedIPs lines,
+      and stray spaces.
+
+    resource_ids:
+      - WG-PEER-01
+
+    output_contract:
+      type: python_function
+
+    grading:
+      method: hidden_test_execution
+
+  - id: COD02
+
+    category: COD
+
+    skill: Parse messy text
+
+    scenario: Normalize MAC address formats
+
+    prompt: |
+      Write a Python function normalize_mac(mac)
+      that returns the MAC address in lowercase
+      colon-separated form, or None if invalid.
+
+    trap: >
+      Dashes, Cisco dotted form, bare hex,
+      wrong length, and non-hex characters.
+
+    resource_ids: []
+
+    output_contract:
+      type: python_function
+
+    grading:
+      method: hidden_test_execution
+
+  - id: COD03
+
+    category: COD
+
+    skill: Branching rules
+
+    scenario: System health evaluation
+
+    prompt: |
+      Write a Python function health(cpu_temp, fan_rpm)
+      that returns "ok", "warn" or "critical"
+      per the stated rules.
+
+    trap: >
+      Overlapping conditions where rule order matters.
+      fan_rpm = 0 is always critical.
+
+    resource_ids: []
+
+    output_contract:
+      type: python_function
+
+    grading:
+      method: hidden_test_execution
+
+  - id: COD04
+
+    category: COD
+
+    skill: Parse messy text
+
+    scenario: Expand cron minute expressions
+
+    prompt: |
+      Write a Python function expand_cron_minutes(field)
+      that returns the sorted list of minutes
+      a cron minute field matches.
+
+    trap: >
+      Mixed formats such as */15, 5,35,
+      and 0-10/5.
+
+    resource_ids: []
+
+    output_contract:
+      type: python_function
+
+    grading:
+      method: hidden_test_execution
+
+  - id: COD05
+
+    category: COD
+
+    skill: Date and rule logic
+
+    scenario: Backup retention selection
+
+    prompt: |
+      Write a Python function backups_to_keep(dates, today)
+      that returns which backup dates to keep:
+      last 7 daily, 4 Sundays, and 3 month-starts.
+
+    trap: >
+      Overlapping retention rules,
+      dates matching multiple rules,
+      and gaps in backup history.
+
+    resource_ids: []
+
+    output_contract:
+      type: python_function
+
+    grading:
+      method: hidden_test_execution
+
+  - id: COD06
+
+    category: COD
+
+    skill: Known classic
+
+    scenario: Prime number detection
+
+    prompt: |
+      Write a Python function is_prime(n)
+      that returns True if n is prime
+      and False otherwise.
+
+    trap: >
+      Control cases include 0, 1,
+      negative numbers, and larger values.
+
+    resource_ids: []
+
+    output_contract:
+      type: python_function
+
+    grading:
+      method: hidden_test_execution
+
+  - id: COD07
+
+    category: COD
+
+    skill: Pattern validation
+
+    scenario: Match private IPv4 addresses
+
+    prompt: |
+      Write a Python-flavor regex that matches
+      only private IPv4 addresses.
+
+    trap: >
+      Reject 172.32.x.x and octets above 255.
+
+    resource_ids: []
+
+    output_contract:
+      type: regex
+
+    grading:
+      method: hidden_test_execution
+
+  - id: COD08
+
+    category: COD
+
+    skill: Aggregate data
+
+    scenario: Maximum temperature per station
+
+    prompt: |
+      Write a SQL query returning the maximum
+      temperature per station for a given day.
+
+    trap: >
+      NULL readings and tied maximum values.
+
+    resource_ids:
+      - WEATHER-READINGS-SQLITE
+
+    output_contract:
+      type: sql_query
+
+    grading:
+      method: sql_result_match
+
+  - id: COD09
+
+    category: COD
+
+    skill: Find what's missing
+
+    scenario: Detect stale monitoring hosts
+
+    prompt: |
+      Write a SQL query returning hosts with
+      no check in the last 24 hours.
+
+    trap: >
+      Hosts that have never checked in
+      must still appear.
+
+    resource_ids:
+      - HOSTS-CHECKS-SQLITE
+
+    output_contract:
+      type: sql_query
+
+    grading:
+      method: sql_result_match
+
+  - id: COD10
+
+    category: COD
+
+    skill: Parse messy text
+
+    scenario: Identify heavily utilized filesystems
+
+    prompt: |
+      Write a bash one-liner that prints
+      mountpoints at 80% use or above
+      from the provided df -h output.
+
+    trap: >
+      Header row, exactly 80% utilization,
+      and 100% utilization.
+
+    resource_ids:
+      - DF-OUTPUT-01
+
+    output_contract:
+      type: bash_command
+
+    grading:
+      method: hidden_test_execution

@@ -1,0 +1,290 @@
+version: 1
+
+questions:
+
+  - id: REA01
+
+    category: REA
+
+    skill: Storage planning
+
+    scenario: RAID5 usable capacity calculation
+
+    prompt: |
+      Four identical 8 TB drives are in a RAID5 array.
+      What is the total usable capacity in terabytes?
+      Answer with digits only.
+
+    trap: >
+      Adding all drives instead of subtracting one
+      parity drive.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: numeric_match
+
+  - id: REA02
+
+    category: REA
+
+    skill: Networking
+
+    scenario: CIDR host calculation
+
+    prompt: |
+      A subnet has CIDR /27.
+      How many usable host addresses does it contain?
+      Answer with digits only.
+
+    trap: >
+      Forgetting to subtract network and
+      broadcast addresses.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: numeric_match
+
+  - id: REA03
+
+    category: REA
+
+    skill: Scheduling
+
+    scenario: Backup completion time
+
+    prompt: |
+      A backup starts at 22:45 and runs for
+      3 hours 35 minutes.
+      At what 24-hour time does it finish?
+      Answer as HH:MM only.
+
+    trap: >
+      Failing to account for crossing midnight.
+
+    resource_ids: []
+
+    output_contract:
+      type: time
+      format: hhmm_24
+
+    grading:
+      method: exact_match
+
+  - id: REA04
+
+    category: REA
+
+    skill: Monitoring
+
+    scenario: Overload policy evaluation
+
+    prompt: |
+      A server is considered overloaded if
+      CPU exceeds 85% and RAM exceeds 90%,
+      or if load average exceeds 25.
+
+      CPU=88%
+      RAM=91%
+      Load=12
+
+      Return only OVERLOADED or NORMAL.
+
+    trap: >
+      Ignoring the combined CPU and RAM condition.
+
+    resource_ids: []
+
+    output_contract:
+      type: enum
+      values:
+        - OVERLOADED
+        - NORMAL
+
+    grading:
+      method: exact_match
+
+  - id: REA05
+
+    category: REA
+
+    skill: Inventory math
+
+    scenario: Available network ports
+
+    prompt: |
+      A company has 18 switches.
+      Each switch has 48 ports.
+      35 ports per switch are in use.
+
+      How many ports remain available across all switches?
+
+      Answer with digits only.
+
+    trap: >
+      Incorrect multiplication and subtraction order.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: numeric_match
+
+  - id: REA06
+
+    category: REA
+
+    skill: Unit conversion
+
+    scenario: UPS energy calculation
+
+    prompt: |
+      A UPS supplies 900 watts for 20 minutes.
+
+      How many watt-hours of energy does that represent?
+
+      Answer with digits only.
+
+    trap: >
+      Incorrect conversion from minutes to hours.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: numeric_match
+
+  - id: REA07
+
+    category: REA
+
+    skill: Log analysis
+
+    scenario: Rolling-window lockout evaluation
+
+    prompt: |
+      Failed login attempts occur at 12:00,
+      12:04, 12:08, and 12:11 from the same IP.
+
+      Policy locks out an IP if 3 or more failed
+      attempts occur within any rolling 10-minute window.
+
+      Return only YES or NO indicating whether
+      the IP is locked out.
+
+    trap: >
+      Evaluating only the total time range rather than
+      checking all rolling 10-minute windows.
+
+    resource_ids: []
+
+    output_contract:
+      type: enum
+      values:
+        - YES
+        - NO
+
+    grading:
+      method: exact_match
+
+  - id: REA08
+
+    category: REA
+
+    skill: Address allocation
+
+    scenario: Reserved address calculation
+
+    prompt: |
+      A network reserves the first 10 IPs
+      and last 5 IPs of a /24 subnet.
+
+      How many addresses remain assignable?
+
+      Answer with digits only.
+
+    trap: >
+      Confusing total addresses with usable addresses.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: numeric_match
+
+  - id: REA09
+
+    category: REA
+
+    skill: Retention policy
+
+    scenario: Backup deletion count
+
+    prompt: |
+      A folder contains 37 daily backups.
+
+      Policy keeps every backup from the most recent
+      7 days and deletes the rest.
+
+      How many backups are deleted?
+
+      Answer with digits only.
+
+    trap: >
+      Reversing the count of retained and deleted backups.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: numeric_match
+
+  - id: REA10
+
+    category: REA
+
+    skill: Capacity planning
+
+    scenario: Peak traffic calculation
+
+    prompt: |
+      A web server averages 120 requests per second.
+
+      Peak traffic is defined as 250% of average.
+
+      How many requests per second represent peak traffic?
+
+      Answer with digits only.
+
+    trap: >
+      Incorrect percentage calculation.
+
+    resource_ids: []
+
+    output_contract:
+      type: integer
+      format: digits_only
+
+    grading:
+      method: numeric_match

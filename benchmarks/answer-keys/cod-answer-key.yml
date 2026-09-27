@@ -1,0 +1,42 @@
+# Archer Dynamics Benchmark
+#
+# PURPOSE
+# -------
+# Hidden grading fixtures for COD questions.
+#
+# COVERED CATEGORY
+# ----------------
+# COD - Coding
+#
+# IMPORTANT
+# ---------
+# Unlike other benchmark categories, COD questions do not
+# use a single expected answer value.
+#
+# Models submit:
+#   - Python functions
+#   - SQL queries
+#   - Regex patterns
+#   - Bash commands
+#
+# Answers are evaluated against hidden test cases.
+#
+# This file stores:
+#   - Expected artifact type
+#   - Function names
+#   - Hidden inputs
+#   - Expected outputs
+#
+# The hidden tests ARE the answer key.
+#
+# A COD question passes only if all required hidden tests pass.
+#
+# The grader interprets:
+#   Match      = 10 points
+#   Declined   = 10 points
+#   Mismatch   = 0 points
+#   Ungraded   = 0 points
+
+version: 1
+
+answers:
