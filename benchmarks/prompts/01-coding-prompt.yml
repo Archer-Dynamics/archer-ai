@@ -187,7 +187,8 @@ questions:
 
     prompt: |
       Write a SQL query returning the maximum
-      temperature per station for a given day.
+      temperature per station for a given day. 
+      Return only the SQL query.
 
     trap: >
       NULL readings and tied maximum values.
@@ -211,7 +212,7 @@ questions:
 
     prompt: |
       Write a SQL query returning hosts with
-      no check in the last 24 hours.
+      no check in the last 24 hours. Return only the SQL query.
 
     trap: >
       Hosts that have never checked in
