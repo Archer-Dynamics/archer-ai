@@ -1,0 +1,32 @@
+id: CON-SCRIPT-03
+
+conversation:
+  - role: user
+    message: >
+      What is the current stock quantity for item INV-88?
+
+  - role: assistant
+    message: >
+      The current stock quantity is 240.
+
+  - role: user
+    message: >
+      A recount found 35 additional units.
+      The correct quantity is 275.
+
+  - role: assistant
+    message: >
+      Inventory updated. Current quantity is 275.
+
+  - role: user
+    message: >
+      Also note the warehouse zone is B4 and the
+      supplier code is NTX-21.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      Provide the final quantity.

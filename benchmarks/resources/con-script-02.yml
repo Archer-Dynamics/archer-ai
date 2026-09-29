@@ -1,0 +1,31 @@
+id: CON-SCRIPT-02
+
+conversation:
+  - role: user
+    message: >
+      What city is listed for customer C-204?
+
+  - role: assistant
+    message: >
+      The current city is Omaha.
+
+  - role: user
+    message: >
+      The customer relocated. Update the city to Madison.
+
+  - role: assistant
+    message: >
+      The city has been updated to Madison.
+
+  - role: user
+    message: >
+      Also note the preferred contact method is email
+      and the account tier is Silver.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      Provide the current city.

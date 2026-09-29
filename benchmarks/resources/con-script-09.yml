@@ -1,0 +1,31 @@
+id: CON-SCRIPT-09
+
+conversation:
+  - role: user
+    message: >
+      What is the tracking ID for shipment 447?
+
+  - role: assistant
+    message: >
+      The tracking ID is TRK-7Q29X.
+
+  - role: user
+    message: >
+      Also note the shipment departed from Omaha
+      and is scheduled for delivery on Friday.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      The package weight is 18 kilograms.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      Provide the tracking ID.

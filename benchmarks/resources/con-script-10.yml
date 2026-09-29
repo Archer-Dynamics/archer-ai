@@ -1,0 +1,31 @@
+id: CON-SCRIPT-10
+
+conversation:
+  - role: user
+    message: >
+      Who is the owner of account ACC-91?
+
+  - role: assistant
+    message: >
+      The owner ID is USR-441A.
+
+  - role: user
+    message: >
+      Also note the account was opened in 2024
+      and is assigned to Region West.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      The account status is Active.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      Provide the final owner ID.

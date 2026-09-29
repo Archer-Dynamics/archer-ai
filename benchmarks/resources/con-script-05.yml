@@ -1,0 +1,40 @@
+id: CON-SCRIPT-05
+
+conversation:
+  - role: user
+    message: >
+      What time is the infrastructure review meeting scheduled?
+
+  - role: assistant
+    message: >
+      The meeting is scheduled for 09:00.
+
+  - role: user
+    message: >
+      Move it to 11:15.
+
+  - role: assistant
+    message: >
+      The meeting has been rescheduled to 11:15.
+
+  - role: user
+    message: >
+      That conflicts with another event. Move it to 14:30.
+
+  - role: assistant
+    message: >
+      The meeting has been rescheduled to 14:30.
+
+  - role: user
+    message: >
+      Also note the room is Conference B and the organizer
+      is Michelle.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      Provide the final start time.
+`

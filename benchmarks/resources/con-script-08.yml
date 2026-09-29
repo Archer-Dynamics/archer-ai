@@ -1,0 +1,31 @@
+id: CON-SCRIPT-08
+
+conversation:
+  - role: user
+    message: >
+      What port is assigned to the telemetry service?
+
+  - role: assistant
+    message: >
+      The telemetry service uses port 8080.
+
+  - role: user
+    message: >
+      Update the assignment to port 8443.
+
+  - role: assistant
+    message: >
+      The telemetry service has been moved to port 8443.
+
+  - role: user
+    message: >
+      Also note the service owner is PlatformOps
+      and the environment is Production.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      Provide the current port number.

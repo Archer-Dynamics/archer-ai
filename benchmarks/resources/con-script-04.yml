@@ -1,0 +1,31 @@
+id: CON-SCRIPT-04
+
+conversation:
+  - role: user
+    message: >
+      What is the current hostname for the backup node?
+
+  - role: assistant
+    message: >
+      The hostname is srv-backup-03.
+
+  - role: user
+    message: >
+      Also note that the node is located in Rack B12
+      and runs nightly backups at 01:00.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      The backup volume was expanded to 24 TB.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      Provide the current hostname.

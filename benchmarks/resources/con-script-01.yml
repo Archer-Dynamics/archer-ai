@@ -1,1 +1,32 @@
+id: CON-SCRIPT-01
 
+conversation:
+  - role: user
+    message: >
+      What is the current balance for account A-771?
+
+  - role: assistant
+    message: >
+      The current balance for account A-771 is 18275.
+
+  - role: user
+    message: >
+      Accounting found a previously unposted payment.
+      The balance should be corrected to 18450.
+
+  - role: assistant
+    message: >
+      Noted. The corrected balance is 18450.
+
+  - role: user
+    message: >
+      Also note the account manager is Renee and the
+      next review date is 2026-03-15.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      Provide the final balance.

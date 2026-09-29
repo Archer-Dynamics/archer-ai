@@ -1,0 +1,31 @@
+id: CON-SCRIPT-07
+
+conversation:
+  - role: user
+    message: >
+      What is the current price of product ZX-500?
+
+  - role: assistant
+    message: >
+      The current price is 275.
+
+  - role: user
+    message: >
+      Apply the promotional adjustment. The new price is 249.
+
+  - role: assistant
+    message: >
+      The price has been updated to 249.
+
+  - role: user
+    message: >
+      A supplier notice was received, but no additional
+      price changes are required.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      Provide the final price.

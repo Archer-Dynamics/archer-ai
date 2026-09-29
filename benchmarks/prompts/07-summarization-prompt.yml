@@ -189,4 +189,85 @@ questions:
       format: max_75_words
 
     grading:
-      method
+      method: fact_survival
+
+  - id: SUM08
+
+    category: SUM
+
+    skill: Meeting summary
+
+    scenario: Preserve decision in meeting summary
+
+    prompt: |
+      Summarize this meeting record in no more than
+      50 words.
+
+    trap: >
+      Omitting the planted decision.
+
+    resource_ids:
+      - SUM-DOC-08
+
+    word_limit: 50
+
+    output_contract:
+      type: summary
+      format: max_50_words
+
+    grading:
+      method: fact_survival
+
+  - id: SUM09
+
+    category: SUM
+
+    skill: Audit summary
+
+    scenario: Preserve compliance status in audit summary
+
+    prompt: |
+      Summarize this audit finding in no more than
+      75 words.
+
+    trap: >
+      Omitting the planted compliance status.
+
+    resource_ids:
+      - SUM-DOC-09
+
+    word_limit: 75
+
+    output_contract:
+      type: summary
+      format: max_75_words
+
+    grading:
+      method: fact_survival
+
+  - id: SUM10
+
+    category: SUM
+
+    skill: Case summary
+
+    scenario: Preserve outcome metric in case study summary
+
+    prompt: |
+      Summarize this case study in no more than
+      75 words.
+
+    trap: >
+      Omitting the planted outcome metric.
+
+    resource_ids:
+      - SUM-DOC-10
+
+    word_limit: 75
+
+    output_contract:
+      type: summary
+      format: max_75_words
+
+    grading:
+      method: fact_survival

@@ -1,0 +1,17 @@
+SUM-DOC-01
+
+Incident Report: Core Authentication Service Outage
+
+On September 14, the Operations Center received alerts indicating elevated authentication failures against the company's centralized identity platform. The first alarm appeared at 08:12, when monitoring systems detected a significant increase in failed login requests affecting employee access to email, VPN, and internal business applications. Initial investigation suggested that the issue was isolated to a single application server, and traffic was briefly redirected to secondary infrastructure.
+
+At 08:19, additional alerts were triggered from multiple regions, confirming that the issue extended beyond a single host. Engineers from the Infrastructure, Platform, and Security teams assembled an incident bridge and began collecting logs from authentication nodes, load balancers, and supporting database systems. During this period, users experienced intermittent inability to sign in and some active sessions were unexpectedly terminated.
+
+Review of system logs showed that a recently deployed configuration package contained an incorrect dependency reference. The affected configuration was intended to support a routine certificate-management update but instead prevented several authentication services from correctly validating requests. Automated retry behavior increased load on healthy systems and contributed to widespread service instability.
+
+At 08:37, the deployment was frozen and rollback procedures were initiated. Engineers restored the previous known-good configuration and gradually returned traffic to normal processing paths. Additional validation confirmed that no customer data was exposed, modified, or lost during the incident. Security monitoring identified no signs of unauthorized activity.
+
+Service performance improved steadily following the rollback. Login success rates returned to expected levels and application owners verified that dependent services were functioning normally. Communications were sent to department representatives and updates were posted to the internal status page throughout the recovery effort.
+
+The total user-facing outage duration was 47 minutes.
+
+Following recovery, leadership directed the Platform Engineering team to implement additional deployment validation checks and require pre-production dependency verification before future authentication infrastructure changes. A post-incident review was scheduled to identify process improvements and reduce the likelihood of similar failures.

@@ -1,0 +1,34 @@
+id: CON-SCRIPT-06
+
+conversation:
+  - role: user
+    message: >
+      Who is the primary contact for project NX-14?
+
+  - role: assistant
+    message: >
+      The primary contact is alice.brown@example.net.
+
+  - role: user
+    message: >
+      Alice moved to a different team.
+      Replace the primary contact with
+      david.hughes@example.net.
+
+  - role: assistant
+    message: >
+      The primary contact has been updated to
+      david.hughes@example.net.
+
+  - role: user
+    message: >
+      Also note the project sponsor is Karen
+      and the status is Active.
+
+  - role: assistant
+    message: >
+      Recorded.
+
+  - role: user
+    message: >
+      Provide the final contact identifier.
