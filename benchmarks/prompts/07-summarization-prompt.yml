@@ -1,3 +1,19 @@
+# =============================================================================
+# Archer Dynamics Benchmark - SUM prompts (07-summarization-prompt.yml)
+# -----------------------------------------------------------------------------
+# Version:   1.0
+# Author:    Jiri Krecek
+# Company:   Archer Dynamics LLC (goarcherdynamics.com)
+# License:   MIT - free to use, modify and distribute with attribution
+# AI Notice: Co-developed with Claude AI (Anthropic). Logic, design and
+#            testing by the author.
+# =============================================================================
+#
+# Model-facing prompts for the 10 SUM questions. The runner pastes the
+# listed resource file after the prompt and appends the UNKNOWN escape
+# clause. Planted facts and accept/reject lists live in
+# non-cod-answer-key.yml; word_limit here must match the answer key.
+
 version: 1
 
 questions:
@@ -18,7 +34,7 @@ questions:
       Omitting the planted outage duration fact.
 
     resource_ids:
-      - SUM-DOC-01
+      - sum-doc-01.txt
 
     word_limit: 75
 
@@ -45,7 +61,7 @@ questions:
       Omitting the planted budget value.
 
     resource_ids:
-      - SUM-DOC-02
+      - sum-doc-02.txt
 
     word_limit: 60
 
@@ -72,7 +88,7 @@ questions:
       Omitting the planted completion date.
 
     resource_ids:
-      - SUM-DOC-03
+      - sum-doc-03.txt
 
     word_limit: 75
 
@@ -99,7 +115,7 @@ questions:
       Omitting the planted revenue figure.
 
     resource_ids:
-      - SUM-DOC-04
+      - sum-doc-04.txt
 
     word_limit: 80
 
@@ -126,7 +142,7 @@ questions:
       Omitting the planted equipment identifier.
 
     resource_ids:
-      - SUM-DOC-05
+      - sum-doc-05.txt
 
     word_limit: 60
 
@@ -153,7 +169,7 @@ questions:
       Omitting the planted sample-size fact.
 
     resource_ids:
-      - SUM-DOC-06
+      - sum-doc-06.txt
 
     word_limit: 70
 
@@ -180,7 +196,7 @@ questions:
       Omitting the planted key metric.
 
     resource_ids:
-      - SUM-DOC-07
+      - sum-doc-07.txt
 
     word_limit: 75
 
@@ -207,7 +223,7 @@ questions:
       Omitting the planted decision.
 
     resource_ids:
-      - SUM-DOC-08
+      - sum-doc-08.txt
 
     word_limit: 50
 
@@ -234,7 +250,7 @@ questions:
       Omitting the planted compliance status.
 
     resource_ids:
-      - SUM-DOC-09
+      - sum-doc-09.txt
 
     word_limit: 75
 
@@ -261,7 +277,7 @@ questions:
       Omitting the planted outcome metric.
 
     resource_ids:
-      - SUM-DOC-10
+      - sum-doc-10.txt
 
     word_limit: 75
 

@@ -1,42 +1,144 @@
-# Archer Dynamics Benchmark
+# =============================================================================
+# Archer Dynamics Benchmark - COD answer key (cod-answer-key.yml)
+# -----------------------------------------------------------------------------
+# Version:   1.0
+# Author:    Jiri Krecek
+# Company:   Archer Dynamics LLC (goarcherdynamics.com)
+# License:   MIT - free to use, modify and distribute with attribution
+# AI Notice: Co-developed with Claude AI (Anthropic). Logic, design and
+#            testing by the author.
+# =============================================================================
 #
-# PURPOSE
-# -------
-# Hidden grading fixtures for COD questions.
+# Hidden grading data for the 10 COD questions. COD answers are test cases,
+# not single values: the grader runs the model's code against each case below.
 #
-# COVERED CATEGORY
-# ----------------
-# COD - Coding
+# Scoring (applied by the grader, not stored here):
+#   MATCH = 10, DECLINED ("UNKNOWN") = 10, MISMATCH = 0, UNGRADED = 0
 #
-# IMPORTANT
-# ---------
-# Unlike other benchmark categories, COD questions do not
-# use a single expected answer value.
-#
-# Models submit:
-#   - Python functions
-#   - SQL queries
-#   - Regex patterns
-#   - Bash commands
-#
-# Answers are evaluated against hidden test cases.
-#
-# This file stores:
-#   - Expected artifact type
-#   - Function names
-#   - Hidden inputs
-#   - Expected outputs
-#
-# The hidden tests ARE the answer key.
-#
-# A COD question passes only if all required hidden tests pass.
-#
-# The grader interprets:
-#   Match      = 10 points
-#   Declined   = 10 points
-#   Mismatch   = 0 points
-#   Ungraded   = 0 points
+# The model never sees this file.
 
 version: 1
 
 answers:
+
+  COD01:
+    method: function_tests
+    function: get_allowed_ips
+    order: any
+    tests:
+      - args_from_resource: wg-peer-01.conf
+        expected: ["10.10.0.0/24", "10.10.1.0/24", "192.168.1.0/24", "192.168.2.0/24", "172.16.5.0/24", "172.16.6.0/24", "10.99.0.0/16"]
+      - {args: ["[Interface]\nAddress = 10.8.0.1/24\n\n[Peer]\nPublicKey = abc123=\n# AllowedIPs = 10.9.9.0/24\nAllowedIPs = 10.20.0.0/24\n"], expected: ["10.20.0.0/24"]}
+      - {args: ["[Peer]\nPublicKey = peerA=\nAllowedIPs = 10.30.0.0/24, 10.31.0.0/24\n\n[Peer]\nPublicKey = peerB=\nAllowedIPs = 192.168.50.0/24\nAllowedIPs = 192.168.51.0/24\n"], expected: ["10.30.0.0/24", "10.31.0.0/24", "192.168.50.0/24", "192.168.51.0/24"]}
+      - {args: ["[Interface]\nPrivateKey = xyz789=\nListenPort = 51820\n"], expected: []}
+      - {args: ["[Peer]\n   AllowedIPs=10.40.0.0/16 ,10.41.0.0/16   \n"], expected: ["10.40.0.0/16", "10.41.0.0/16"]}
+
+  COD02:
+    method: function_tests
+    function: normalize_mac
+    tests:
+      - {args: ["AA:BB:CC:DD:EE:FF"], expected: "aa:bb:cc:dd:ee:ff"}
+      - {args: ["aa-bb-cc-dd-ee-ff"], expected: "aa:bb:cc:dd:ee:ff"}
+      - {args: ["AABB.CCDD.EEFF"], expected: "aa:bb:cc:dd:ee:ff"}
+      - {args: ["aabbccddeeff"], expected: "aa:bb:cc:dd:ee:ff"}
+      - {args: ["00:1A:2b:3C:4d:5E"], expected: "00:1a:2b:3c:4d:5e"}
+      - {args: ["aa:bb-cc:dd:ee:ff"], expected: null}
+      - {args: ["aa:bb:cc:dd:ee"], expected: null}
+      - {args: ["aa:bb:cc:dd:ee:ff:00"], expected: null}
+      - {args: ["gg:bb:cc:dd:ee:ff"], expected: null}
+      - {args: [""], expected: null}
+
+  COD03:
+    method: function_tests
+    function: health
+    tests:
+      - {args: [50, 1200], expected: "ok"}
+      - {args: [74, 1200], expected: "ok"}
+      - {args: [75, 1200], expected: "warn"}
+      - {args: [89, 1200], expected: "warn"}
+      - {args: [90, 1200], expected: "critical"}
+      - {args: [30, 0], expected: "critical"}
+      - {args: [95, 500], expected: "critical"}
+      - {args: [60, 799], expected: "warn"}
+      - {args: [60, 800], expected: "ok"}
+      - {args: [20, 3000], expected: "ok"}
+
+  COD04:
+    method: function_tests
+    function: expand_cron_minutes
+    tests:
+      - {args: ["*/15"], expected: [0, 15, 30, 45]}
+      - {args: ["5,35"], expected: [5, 35]}
+      - {args: ["0-10/5"], expected: [0, 5, 10]}
+      - {args: ["7"], expected: [7]}
+      - {args: ["50-55"], expected: [50, 51, 52, 53, 54, 55]}
+      - {args: ["*/20"], expected: [0, 20, 40]}
+      - {args: ["0-10/5,30"], expected: [0, 5, 10, 30]}
+      - {args: ["10,5,10"], expected: [5, 10]}
+      - {args: ["45-59/7"], expected: [45, 52, 59]}
+      - {args: ["*"], expected: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]}
+
+  COD05:
+    method: function_tests
+    function: backups_to_keep
+    tests:
+      - {args: [["2026-09-20", "2026-09-21", "2026-09-22", "2026-09-23", "2026-09-24", "2026-09-25", "2026-09-26", "2026-09-27", "2026-09-28", "2026-09-29"], "2026-09-29"], expected: ["2026-09-20", "2026-09-23", "2026-09-24", "2026-09-25", "2026-09-26", "2026-09-27", "2026-09-28", "2026-09-29"]}
+      - {args: [["2026-08-16", "2026-08-23", "2026-08-30", "2026-09-06", "2026-09-13", "2026-09-20"], "2026-09-29"], expected: ["2026-08-30", "2026-09-06", "2026-09-13", "2026-09-20"]}
+      - {args: [["2026-05-01", "2026-06-01", "2026-07-01", "2026-08-01", "2026-09-01", "2026-09-15"], "2026-09-29"], expected: ["2026-07-01", "2026-08-01", "2026-09-01"]}
+      - {args: [["2025-12-01", "2026-01-01", "2026-01-04", "2026-02-01", "2026-02-08", "2026-02-15", "2026-02-22", "2026-03-01", "2026-03-09", "2026-03-10"], "2026-03-10"], expected: ["2026-01-01", "2026-02-01", "2026-02-08", "2026-02-15", "2026-02-22", "2026-03-01", "2026-03-09", "2026-03-10"]}
+      - {args: [[], "2026-09-29"], expected: []}
+      - {args: [["2026-09-28", "2026-09-01", "2026-09-28", "2026-09-27", "2026-08-10"], "2026-09-29"], expected: ["2026-09-01", "2026-09-27", "2026-09-28"]}
+
+  COD06:
+    method: function_tests
+    function: is_prime
+    tests:
+      - {args: [0], expected: false}
+      - {args: [1], expected: false}
+      - {args: [2], expected: true}
+      - {args: [3], expected: true}
+      - {args: [4], expected: false}
+      - {args: [-7], expected: false}
+      - {args: [91], expected: false}
+      - {args: [97], expected: true}
+      - {args: [7919], expected: true}
+      - {args: [7921], expected: false}
+      - {args: [104729], expected: true}
+      - {args: [1000003], expected: true}
+      - {args: [999999], expected: false}
+
+  COD07:
+    method: regex_fullmatch
+    tests:
+      - {input: "10.0.0.1", expected: true}
+      - {input: "10.255.255.255", expected: true}
+      - {input: "172.16.0.1", expected: true}
+      - {input: "172.31.255.254", expected: true}
+      - {input: "192.168.1.1", expected: true}
+      - {input: "172.15.0.1", expected: false}
+      - {input: "172.32.0.1", expected: false}
+      - {input: "192.169.1.1", expected: false}
+      - {input: "11.0.0.1", expected: false}
+      - {input: "8.8.8.8", expected: false}
+      - {input: "100.64.0.1", expected: false}
+      - {input: "10.0.0.256", expected: false}
+      - {input: "10.0.0", expected: false}
+      - {input: "192.168.1.1.5", expected: false}
+
+  COD08:
+    method: sql_result_rows
+    setup_resource: weather-readings.sql
+    row_order: any
+    expected: [["STN-A", 78], ["STN-B", 81], ["STN-C", 72]]
+
+  COD09:
+    method: sql_result_rows
+    setup_resource: hosts-checks.sql
+    row_order: any
+    expected: [["bravo"], ["delta"]]
+
+  COD10:
+    method: bash_output_lines
+    input_resource: df-output-01.txt
+    line_order: any
+    expected: ["/var", "/data", "/backup"]

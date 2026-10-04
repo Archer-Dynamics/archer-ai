@@ -1,3 +1,18 @@
+# =============================================================================
+# Archer Dynamics Benchmark - RET prompts (06-retrieval-prompt.yml)
+# -----------------------------------------------------------------------------
+# Version:   1.0
+# Author:    Jiri Krecek
+# Company:   Archer Dynamics LLC (goarcherdynamics.com)
+# License:   MIT - free to use, modify and distribute with attribution
+# AI Notice: Co-developed with Claude AI (Anthropic). Logic, design and
+#            testing by the author.
+# =============================================================================
+#
+# Model-facing prompts for the 10 RET questions. The runner pastes the
+# listed resource file after the prompt and appends the UNKNOWN escape
+# clause. Expected answers live in non-cod-answer-key.yml.
+
 version: 1
 
 questions:
@@ -19,7 +34,7 @@ questions:
       Similar port numbers appear elsewhere in the document.
 
     resource_ids:
-      - RET-DOC-01
+      - ret-doc-01.txt
 
     output_contract:
       type: integer
@@ -45,7 +60,7 @@ questions:
       Similar server names appear elsewhere in the document.
 
     resource_ids:
-      - RET-DOC-01
+      - ret-doc-02.txt
 
     output_contract:
       type: hostname
@@ -71,7 +86,7 @@ questions:
       Multiple dates appear in nearby sections.
 
     resource_ids:
-      - RET-DOC-01
+      - ret-doc-03.txt
 
     output_contract:
       type: integer
@@ -98,7 +113,7 @@ questions:
       in the document.
 
     resource_ids:
-      - RET-DOC-01
+      - ret-doc-04.txt
 
     output_contract:
       type: token
@@ -124,7 +139,7 @@ questions:
       Multiple VLAN definitions appear nearby.
 
     resource_ids:
-      - RET-DOC-01
+      - ret-doc-05.txt
 
     output_contract:
       type: integer
@@ -151,7 +166,7 @@ questions:
       other equipment.
 
     resource_ids:
-      - RET-DOC-01
+      - ret-doc-06.txt
 
     output_contract:
       type: integer
@@ -177,7 +192,7 @@ questions:
       Other regional offices use similar naming.
 
     resource_ids:
-      - RET-DOC-01
+      - ret-doc-07.txt
 
     output_contract:
       type: token
@@ -204,7 +219,7 @@ questions:
       Several phone numbers appear in the document.
 
     resource_ids:
-      - RET-DOC-01
+      - ret-doc-08.txt
 
     output_contract:
       type: integer
@@ -230,7 +245,7 @@ questions:
       Similar HVAC units use different refrigerants.
 
     resource_ids:
-      - RET-DOC-01
+      - ret-doc-09.txt
 
     output_contract:
       type: token
@@ -256,7 +271,7 @@ questions:
       Multiple cluster names appear in the document.
 
     resource_ids:
-      - RET-DOC-01
+      - ret-doc-10.txt
 
     output_contract:
       type: token

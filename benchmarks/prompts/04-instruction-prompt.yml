@@ -1,3 +1,17 @@
+# =============================================================================
+# Archer Dynamics Benchmark - INS prompts (04-instruction-prompt.yml)
+# -----------------------------------------------------------------------------
+# Version:   1.0
+# Author:    Jiri Krecek
+# Company:   Archer Dynamics LLC (goarcherdynamics.com)
+# License:   MIT - free to use, modify and distribute with attribution
+# AI Notice: Co-developed with Claude AI (Anthropic). Logic, design and
+#            testing by the author.
+# =============================================================================
+#
+# Model-facing prompts for the 10 INS questions. The runner appends the
+# UNKNOWN escape clause. Expected answers live in non-cod-answer-key.yml.
+
 version: 1
 
 questions:
@@ -26,7 +40,7 @@ questions:
       type: json
 
     grading:
-      method: json_validation
+      method: json_equal
 
   - id: INS02
 
@@ -154,7 +168,7 @@ questions:
       type: bullet_list
 
     grading:
-      method: regex_match
+      method: exact_match
 
   - id: INS07
 
@@ -165,7 +179,7 @@ questions:
     scenario: Fixed-length output
 
     prompt: |
-      Output exactly 20 X characters
+      Output exactly 20 uppercase letter X characters
       and nothing else.
 
     trap: >
@@ -216,7 +230,7 @@ questions:
 
     prompt: |
       Output the following words in alphabetical order
-      separated by commas, and nothing else:
+      separated by a comma and a space, and nothing else:
 
       gamma, alpha, beta
 
@@ -256,4 +270,4 @@ questions:
       type: json_array
 
     grading:
-      method: json_validation
+      method: json_equal

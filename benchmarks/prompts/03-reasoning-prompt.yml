@@ -1,3 +1,17 @@
+# =============================================================================
+# Archer Dynamics Benchmark - REA prompts (03-reasoning-prompt.yml)
+# -----------------------------------------------------------------------------
+# Version:   1.0
+# Author:    Jiri Krecek
+# Company:   Archer Dynamics LLC (goarcherdynamics.com)
+# License:   MIT - free to use, modify and distribute with attribution
+# AI Notice: Co-developed with Claude AI (Anthropic). Logic, design and
+#            testing by the author.
+# =============================================================================
+#
+# Model-facing prompts for the 10 REA questions. The runner appends the
+# UNKNOWN escape clause. Expected answers live in non-cod-answer-key.yml.
+
 version: 1
 
 questions:
@@ -213,6 +227,8 @@ questions:
     prompt: |
       A network reserves the first 10 IPs
       and last 5 IPs of a /24 subnet.
+      The reserved IPs include the network
+      and broadcast addresses.
 
       How many addresses remain assignable?
 

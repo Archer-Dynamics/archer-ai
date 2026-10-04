@@ -1,3 +1,17 @@
+# =============================================================================
+# Archer Dynamics Benchmark - REC prompts (02-recall-prompt.yml)
+# -----------------------------------------------------------------------------
+# Version:   1.0
+# Author:    Jiri Krecek
+# Company:   Archer Dynamics LLC (goarcherdynamics.com)
+# License:   MIT - free to use, modify and distribute with attribution
+# AI Notice: Co-developed with Claude AI (Anthropic). Logic, design and
+#            testing by the author.
+# =============================================================================
+#
+# Model-facing prompts for the 10 REC questions. The runner appends the
+# UNKNOWN escape clause. Expected answers live in non-cod-answer-key.yml.
+
 version: 1
 
 questions:
@@ -222,7 +236,7 @@ questions:
       format: single_word
 
     grading:
-      method: exact_match
+      method: word_list
 
   - id: REC10
 

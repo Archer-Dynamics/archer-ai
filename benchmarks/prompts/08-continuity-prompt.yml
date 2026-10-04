@@ -1,3 +1,19 @@
+# =============================================================================
+# Archer Dynamics Benchmark - CON prompts (08-continuity-prompt.yml)
+# -----------------------------------------------------------------------------
+# Version:   1.0
+# Author:    Jiri Krecek
+# Company:   Archer Dynamics LLC (goarcherdynamics.com)
+# License:   MIT - free to use, modify and distribute with attribution
+# AI Notice: Co-developed with Claude AI (Anthropic). Logic, design and
+#            testing by the author.
+# =============================================================================
+#
+# Model-facing prompts for the 10 CON questions. The runner pastes the
+# listed conversation script after the prompt and appends the UNKNOWN
+# escape clause. Prompts are deliberately neutral: they must not say
+# whether a value changed. Expected answers live in non-cod-answer-key.yml.
+
 version: 1
 
 questions:
@@ -11,16 +27,17 @@ questions:
     scenario: Corrected account balance
 
     prompt: |
-      Early account balance is corrected later.
+      Based on the conversation below, what is the
+      account balance?
 
-      Provide the final balance.
+      Answer with digits only.
 
     trap: >
       Uses the original value instead of
       the corrected value.
 
     resource_ids:
-      - CON-SCRIPT-01
+      - con-script-01.yml
 
     output_contract:
       type: integer
@@ -38,15 +55,16 @@ questions:
     scenario: Current customer city
 
     prompt: |
-      Customer city changes during the conversation.
+      Based on the conversation below, what city
+      does the customer live in?
 
-      Provide the current city.
+      Answer with the city name only.
 
     trap: >
       Retains the earlier city value.
 
     resource_ids:
-      - CON-SCRIPT-02
+      - con-script-02.yml
 
     output_contract:
       type: token
@@ -64,16 +82,17 @@ questions:
     scenario: Corrected stock quantity
 
     prompt: |
-      Stock quantity is corrected later.
+      Based on the conversation below, what is the
+      stock quantity?
 
-      Provide the final quantity.
+      Answer with digits only.
 
     trap: >
       Uses the initial quantity rather than
       the corrected quantity.
 
     resource_ids:
-      - CON-SCRIPT-03
+      - con-script-03.yml
 
     output_contract:
       type: integer
@@ -91,16 +110,17 @@ questions:
     scenario: Unchanged hostname
 
     prompt: |
-      Hostname is stated once and never changed.
+      Based on the conversation below, what is the
+      hostname?
 
-      Provide the current hostname.
+      Answer with the hostname only.
 
     trap: >
       Assumes a correction occurred even though
       none was made.
 
     resource_ids:
-      - CON-SCRIPT-04
+      - con-script-04.yml
 
     output_contract:
       type: hostname
@@ -118,16 +138,17 @@ questions:
     scenario: Final meeting start time
 
     prompt: |
-      The meeting is moved multiple times.
+      Based on the conversation below, what time
+      does the meeting start?
 
-      Provide the final start time.
+      Answer in 24-hour HH:MM format only.
 
     trap: >
       Uses an intermediate time instead of
       the final scheduled time.
 
     resource_ids:
-      - CON-SCRIPT-05
+      - con-script-05.yml
 
     output_contract:
       type: time
@@ -145,16 +166,17 @@ questions:
     scenario: Final primary contact
 
     prompt: |
-      Primary contact is replaced later.
+      Based on the conversation below, what is the
+      primary contact's email address?
 
-      Provide the final contact identifier.
+      Answer with the email address only.
 
     trap: >
       Uses the original contact instead of
       the replacement.
 
     resource_ids:
-      - CON-SCRIPT-06
+      - con-script-06.yml
 
     output_contract:
       type: email
@@ -172,16 +194,17 @@ questions:
     scenario: Final product price
 
     prompt: |
-      Product price is updated multiple times.
+      Based on the conversation below, what is the
+      product price?
 
-      Provide the final price.
+      Answer with digits only.
 
     trap: >
       Uses an older price or performs
       unnecessary arithmetic.
 
     resource_ids:
-      - CON-SCRIPT-07
+      - con-script-07.yml
 
     output_contract:
       type: integer
@@ -199,15 +222,16 @@ questions:
     scenario: Current network port assignment
 
     prompt: |
-      Network port assignment is updated later.
+      Based on the conversation below, what network
+      port is assigned?
 
-      Provide the current port number.
+      Answer with digits only.
 
     trap: >
       Retains the previous configuration value.
 
     resource_ids:
-      - CON-SCRIPT-08
+      - con-script-08.yml
 
     output_contract:
       type: integer
@@ -225,16 +249,17 @@ questions:
     scenario: Unchanged tracking identifier
 
     prompt: |
-      Tracking ID is stated once and never changed.
+      Based on the conversation below, what is the
+      tracking ID?
 
-      Provide the tracking ID.
+      Answer with the ID only.
 
     trap: >
       Assumes an update occurred even though
       the identifier never changed.
 
     resource_ids:
-      - CON-SCRIPT-09
+      - con-script-09.yml
 
     output_contract:
       type: token
@@ -252,16 +277,17 @@ questions:
     scenario: Unchanged account owner
 
     prompt: |
-      Account owner is stated once and never changed.
+      Based on the conversation below, what is the
+      account owner ID?
 
-      Provide the final owner ID.
+      Answer with the ID only.
 
     trap: >
       Replaces an unchanged value with
       an invented update.
 
     resource_ids:
-      - CON-SCRIPT-10
+      - con-script-10.yml
 
     output_contract:
       type: token
